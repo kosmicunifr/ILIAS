@@ -3862,6 +3862,12 @@ function getAnswerFeedbackPoints()
 	{
 		if ($this->getTitleOutput() == 2)
 		{
+			if( $this->getQuestionSetType() == self::QUESTION_SET_TYPE_DYNAMIC )
+			{
+				// avoid legacy setting combination: ctm without question titles
+				return $title;
+			}
+			else
 			if (isset($nr))
 			{
 				return $this->lng->txt("ass_question"). ' ' . $nr;
@@ -7512,6 +7518,9 @@ function getAnswerFeedbackPoints()
 		$newObj->setAutosaveIval($this->getAutosaveIval());
 		$newObj->setOfferingQuestionHintsEnabled($this->isOfferingQuestionHintsEnabled());
 		$newObj->setSpecificAnswerFeedback($this->getSpecificAnswerFeedback());
+		if ($this->isPassWaitingEnabled()) {
+			$newObj->setPassWaiting($this->getPassWaiting());
+		}
 		$newObj->setObligationsEnabled($this->areObligationsEnabled());
 		$newObj->saveToDb();
 		
@@ -8891,6 +8900,18 @@ function getAnswerFeedbackPoints()
 		}
 		
 		return false;
+	}
+	
+	public function checkQuestionParent($questionId)
+	{
+		global $DIC; /* @var ILIAS\DI\Container $DIC */
+		
+		$row = $DIC->database()->fetchAssoc($DIC->database()->queryF(
+			"SELECT COUNT(question_id) cnt FROM qpl_questions WHERE question_id = %s AND obj_fi = %s",
+			array('integer', 'integer'), array($questionId, $this->getId())
+		));
+		
+		return (bool)$row['cnt'];
 	}
 	
 	/**

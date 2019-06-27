@@ -23,9 +23,9 @@ interface ilMMItemFacadeInterface {
 
 
 	/**
-	 * @return \ILIAS\GlobalScreen\MainMenu\isItem
+	 * @return \ILIAS\GlobalScreen\Scope\MainMenu\Factory\isItem
 	 */
-	public function item(): \ILIAS\GlobalScreen\MainMenu\isItem;
+	public function item(): \ILIAS\GlobalScreen\Scope\MainMenu\Factory\isItem;
 
 
 	/**
@@ -69,6 +69,18 @@ interface ilMMItemFacadeInterface {
 	 * @return bool
 	 */
 	public function isActivated(): bool;
+
+
+	/**
+	 * @return bool
+	 */
+	public function isEditable(): bool;
+
+
+	/**
+	 * @return bool
+	 */
+	public function isDeletable(): bool;
 
 
 	/**

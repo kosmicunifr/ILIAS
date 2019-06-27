@@ -1,14 +1,14 @@
 <?php
 
-use ILIAS\GlobalScreen\Collector\MainMenu\Renderer\BaseTypeRenderer;
-use ILIAS\GlobalScreen\MainMenu\hasAction;
-use ILIAS\GlobalScreen\MainMenu\hasAsyncContent;
-use ILIAS\GlobalScreen\MainMenu\hasContent;
-use ILIAS\GlobalScreen\MainMenu\hasTitle;
-use ILIAS\GlobalScreen\MainMenu\isItem;
-use ILIAS\GlobalScreen\MainMenu\Item\LinkList;
-use ILIAS\GlobalScreen\MainMenu\Item\Separator;
-use ILIAS\GlobalScreen\MainMenu\TopItem\TopParentItem;
+use ILIAS\GlobalScreen\Scope\MainMenu\Collector\Renderer\BaseTypeRenderer;
+use ILIAS\GlobalScreen\Scope\MainMenu\Factory\hasAction;
+use ILIAS\GlobalScreen\Scope\MainMenu\Factory\hasAsyncContent;
+use ILIAS\GlobalScreen\Scope\MainMenu\Factory\hasContent;
+use ILIAS\GlobalScreen\Scope\MainMenu\Factory\hasTitle;
+use ILIAS\GlobalScreen\Scope\MainMenu\Factory\isItem;
+use ILIAS\GlobalScreen\Scope\MainMenu\Factory\Item\LinkList;
+use ILIAS\GlobalScreen\Scope\MainMenu\Factory\Item\Separator;
+use ILIAS\GlobalScreen\Scope\MainMenu\Factory\TopItem\TopParentItem;
 use ILIAS\UI\Component\Component;
 
 /**
@@ -28,6 +28,7 @@ class ilMMTopParentItemRenderer extends BaseTypeRenderer {
 		 */
 		$tpl = new ilTemplate("tpl.mm_top_parent_item.html", false, false, 'Services/MainMenu');
 		$tpl->setVariable("TITLE", $item->getTitle());
+		$tpl->setVariable("ID", ilMMAbstractItemGUI::CSS_ID_PREFIX . $item->getProviderIdentification()->getInternalIdentifier());
 
 		$gl = new ilGroupedListGUI();
 		$gl->setAsDropDown(true);
