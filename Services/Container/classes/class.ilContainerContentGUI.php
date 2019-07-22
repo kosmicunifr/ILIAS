@@ -804,6 +804,8 @@ abstract class ilContainerContentGUI
 			}
 		}
 
+		$sections = [];
+
 		$image = $f->image()->responsive($path, "");
 		if ($def_command["link"] != "")	// #24256
 		{
@@ -813,10 +815,19 @@ abstract class ilContainerContentGUI
 		// card
 		$title = $a_item_data["title"];
 
-		if ($a_item_data["type"] == "sess" && $a_item_data["title"] == "")
+		// description, @todo: move to new ks element
+		if ($a_item_data["description"] != "") {
+			$sections[] = $f->legacy("<div class='il_info il-multi-line-cap-3'>".$a_item_data["description"]."</div>");
+		}
+
+		if ($a_item_data["type"] == "sess")
 		{
 			$app_info = ilSessionAppointment::_lookupAppointment($a_item_data['obj_id']);
-			$title = ilSessionAppointment::_appointmentToString($app_info['start'], $app_info['end'], $app_info['fullday']);
+			if ($title != "") {
+				$title = ": ".$title;
+			}
+			$title = ilSessionAppointment::_appointmentToString($app_info['start'], $app_info['end'], $app_info['fullday']).
+				$title;
 		}
 
 		$icon = $f->icon()->standard($a_item_data["type"], $this->lng->txt("obj_".$a_item_data["type"]))
@@ -843,12 +854,15 @@ abstract class ilContainerContentGUI
 				$l[(string) $p["property"]] = (string) $p["value"];
 			}
 		}
+
 		if (count($l) > 0)
 		{
 			$prop_list = $f->listing()->descriptive($l);
-			$card = $card->withSections([$prop_list]);
+			$sections[] = $prop_list;
 		}
-
+		if (count($sections) > 0) {
+			$card = $card->withSections($sections);
+		}
 		// learning progress
 		include_once "Services/Tracking/classes/class.ilLPStatus.php";
 		$lp = ilLPStatus::getListGUIStatus($a_item_data["obj_id"], false);
