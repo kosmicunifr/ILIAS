@@ -6957,8 +6957,16 @@ button.close {
     display: flex;
     flex-direction: column;
   }
-  .row-eq-height .il-card :nth-child(4) {
+  .row-eq-height .il-card :last-child {
     flex-grow: 2;
+  }
+}
+/* see bug #25920, limit size of cards for small screens */
+@media (max-width: 768px) {
+  .il-card {
+    max-width: 350px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 .il-deck .row {
@@ -8876,6 +8884,15 @@ fieldset[disabled] .il-table-presentation-viewcontrols .btn-default:not(.disable
 .il-workflow-container .il-workflow-step:last-child .text {
   border-left: none;
 }
+.il-workflow-container .il-workflow-step .text .il-workflow-step-label .btn-link,
+.il-workflow-container .il-workflow-step .text .il-workflow-step-description {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.il-workflow-container .il-workflow-step .text .il-workflow-step-description {
+  display: block;
+}
 .il-workflow-container .not-available:before,
 .il-workflow-container .no-longer-available:before {
   content: "\e033";
@@ -10511,7 +10528,8 @@ td.il_Description_no_margin {
   font-style: italic;
   text-align: left;
 }
-[dir="rtl"] div.il_Description_no_margin,[dir="rtl"] td.il_Description_no_margin {
+[dir="rtl"] div.il_Description_no_margin,
+[dir="rtl"] td.il_Description_no_margin {
   text-align: right;
 }
 div.il_info {
@@ -14327,31 +14345,24 @@ li.smallPad {
 .ilCrsObjAcc {
   margin-bottom: 10px;
 }
-
 .ilCourseObjectiveAccResults {
   padding-top: 10px;
 }
-
-
 .ilCourseObjectiveAccResult {
   font-size: 80%;
 }
-
 .ilCourseObjectiveAccSummary {
   font-size: 120%;
   padding-top: 15px;
 }
-
 .ilCourseObjectiveProgressBarContainer .text-comparision {
   display: none;
 }
-
 .ilCourseObjectiveProgressBarContainer {
   float: right;
   max-width: 200px;
   padding: 20px;
 }
-
 /* LOK progress bars */
 .ilCourseObjectiveProgressBar {
   padding-right: 5px;
@@ -14683,6 +14694,12 @@ div#ilContRepIntro img {
 }
 .ilContainerTileRows .card-no-highlight {
   height: 0px;
+}
+.ilContainerTileRows .il-chart-progressmeter-container {
+  height: 100%;
+}
+.ilContainerTileRows .il-card h5 button.btn {
+  font-size: inherit;
 }
 .ilContainerShowMore {
   padding: 15px 10px;
@@ -15891,6 +15908,7 @@ body.ilPrtfPdfBody .ilPCMyCoursesToggle img {
 }
 #onscreenchat-container .popover {
   max-width: 200px;
+  min-height: 100px;
 }
 #onscreenchat-container .popover a {
   border: 1px solid white;
