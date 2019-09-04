@@ -2966,10 +2966,12 @@ common#:#add#:#Hinzufügen
 common#:#add_condition#:#Neue Vorbedingung erstellen
 common#:#add_entry#:#Eintragen
 common#:#add_member#:#Mitglied hinzufügen
+common#:#add_member_role#:#Mitgliederrolle hinzufügen
 common#:#add_new_user_defined_field#:#Neues benutzerdefiniertes Feld anlegen
 common#:#add_note#:#Notiz hinzufügen
 common#:#add_parameter#:#Neuer Parameter
 common#:#add_remove_edit_entries_of_main_menu#:#Hinzufügen, entfernen oder bearbeiten von Einträgen im Hauptmenü
+common#:#add_role#:#Rolle hinzufügen
 common#:#add_translation#:#Übersetzung hinzufügen
 common#:#add_user#:#Lokalen Benutzer hinzufügen
 common#:#add_user_defined_field#:#Neues Feld anlegen
@@ -3743,6 +3745,7 @@ common#:#grp_dismiss_myself#:#Sind Sie sicher, dass Sie die Mitgliedschaft in di
 common#:#grp_edit#:#Einstellungen der Gruppe
 common#:#grp_err_administrator_required#:#Gruppenmitglied wurde nicht entfernt, es wird mindestens ein Administrator pro Gruppe benötigt.
 common#:#grp_header_edit_members#:#Mitglieder bearbeiten
+common#:#grp_list_members#:#Teilnehmer auflisten
 common#:#grp_list_reg#:#Beitritt
 common#:#grp_list_reg_end#:#Anmeldungsende
 common#:#grp_list_reg_limit_full#:#Keine freien Plätze verfügbar
@@ -12786,9 +12789,9 @@ search#:#search_err_user_not_exist#:#Es konnte kein entsprechender Benutzer gefu
 search#:#search_fast_info#:#Suche nach Titeln, Beschreibungen und Schlagwörtern
 search#:#search_filter_by_type#:#Typfilter
 search#:#search_filter_cd#:#Filter nach Erstellungsdatum
-search#:#search_for_crs_members#:#Nach Kursmitgliedern suchen
-search#:#search_for_grp_members#:#Nach Gruppenmitgliedern suchen
-search#:#search_for_role_members#:#Nach Rollenmitgliedern suchen
+search#:#search_for_crs_members#:#Nach Kursen suchen
+search#:#search_for_grp_members#:#Nach Gruppen suchen
+search#:#search_for_role_members#:#Nach Rollen suchen
 search#:#search_for_users#:#Nach Benutzern suchen
 search#:#search_full_info#:#Diese Suchart benutzt einen Index, um in großen Datenmengen zu suchen.
 search#:#search_grp_title#:#Gruppenname
@@ -12962,9 +12965,11 @@ skmg#:#skmg_ass_materials_from_workspace#:#An dieser Stelle können Sie Material
 skmg#:#skmg_assign_level#:#Ausprägung zuordnen
 skmg#:#skmg_assign_materials#:#Materialien zuordnen
 skmg#:#skmg_assign_user#:#Benutzer zuordnen
+skmg#:#skmg_add_assignment#:#Rollen / Mitglieder zuordnen
+skmg#:#skmg_add_user_to_profile#:#Benutzer oder Rollen suchen
 skmg#:#skmg_assigned_profiles#:#Zugewiesene Profile
 skmg#:#skmg_assigned_skill_levels#:#Zugeordnete Kompetenzausprägungen
-skmg#:#skmg_assigned_users#:#Zugeordnete Benutzer
+skmg#:#skmg_assigned_users#:#Zugeordnete Rollen und Benutzer
 skmg#:#skmg_cannot_delete_nodes_in_use#:#Einige Objekte können nicht gelöscht werden, da sie noch in Gebrauch sind.
 skmg#:#skmg_cert_skill_level_title#:#Titel Kompetenzausprägung
 skmg#:#skmg_cert_skill_title#:#Titel Kompetenz
@@ -12980,6 +12985,7 @@ skmg#:#skmg_create_skill_template_category#:#Vorlagenkategorie erstellen
 skmg#:#skmg_create_skill_template_reference#:#Vorlage einfügen
 skmg#:#skmg_create_skll#:#Kompetenz erstellen
 skmg#:#skmg_delete_profiles#:#Wollen Sie wirklich die folgenden Profile löschen?
+skmg#:#skmg_description_info#:#Die Beschreibung stammt aus der Vorlage.
 skmg#:#skmg_edit_level#:#Ausprägung editieren
 skmg#:#skmg_edit_profile#:#Profil bearbeiten
 skmg#:#skmg_edit_scat#:#Kategorie ändern
@@ -13042,7 +13048,7 @@ skmg#:#skmg_selectable#:#Auswählbar
 skmg#:#skmg_selectable_info#:#Erlaubt Benutzern die Kompetenz als persönliche Kompetenz hinzuzufügen.
 skmg#:#skmg_selected_items_have_been_copied#:#Die ausgewählten Objekte wurden kopiert.
 skmg#:#skmg_selected_items_have_been_cut#:#Die ausgewählten Objekte wurden ausgeschnitten.
-skmg#:#skmg_selected_skills#:#Ausgewählte Kompetenzen
+skmg#:#skmg_selected_skills#:#Kompetenzeinträge
 skmg#:#skmg_self_evaluation#:#Selbsteinschätzung
 skmg#:#skmg_self_evaluations#:#Selbsteinschätzungen
 skmg#:#skmg_settings#:#Kompetenzmanagement Einstellungen
