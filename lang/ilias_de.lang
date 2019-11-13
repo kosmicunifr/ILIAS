@@ -512,7 +512,7 @@ assessment#:#cannot_execute_test#:#Sie besitzen keine ausreichenden Rechte, um d
 assessment#:#cannot_export_archive#:#Archivexport kann nicht erzeugt werden.
 assessment#:#cannot_read_questionpool#:#Sie besitzen keine ausreichenden Rechte, um auf den Fragenpool zuzugreifen!
 assessment#:#cannot_save_metaobject#:#Sie besitzen keine ausreichenden Rechte, um die Metadaten zu speichern!
-assessment#:#cannot_switch_to_online_no_questions_andor_no_mark_steps#:#Der Status kann nicht auf &quot;online (aktiviert)&quot; geändert werden, da der Test noch keine Fragen und/oder Noten hinzugefügt wurden!
+assessment#:#cannot_switch_to_online_no_questions_andor_no_mark_steps#:#Status kann nicht auf &quot;online (aktiviert)&quot; geändert werden, da dem Test noch keine Fragen und/oder Noten hinzugefügt wurden!
 assessment#:#categories#:#Kategorien
 assessment#:#category#:#Kategorie
 assessment#:#change_adm_categories_not_allowed#:#An dieser Stelle haben Sie keine Schreibberechtigung an der Kategorie.
@@ -1787,6 +1787,7 @@ assessment#:#tst_tbl_col_passed_status#:#Bewertung
 assessment#:#tst_tbl_col_percent_result#:#Ergebnis
 assessment#:#tst_tbl_col_reached_points#:#Erreichte Punkte
 assessment#:#tst_tbl_col_scored_pass#:#Bewerteter Durchlauf
+assessment#:#tst_tbl_col_pass_finished#:#Durchlauf beendet
 assessment#:#tst_tbl_invited_users#:#Ausgewählte Teilnehmer
 assessment#:#tst_tbl_participants#:#Teilnehmer
 assessment#:#tst_tbl_results_grades#:#Ergebnisse und Noten
@@ -1887,6 +1888,7 @@ auth#:#auth_info_add#:#Wählen Sie diese Einstellung, falls Sie sich noch nie f�
 auth#:#auth_info_migrate#:#Wenn Sie bereits ein ILIAS-Benutzerkonto besitzen, geben Sie bitte den Benutzernamen und das Passwort ein, um Ihre persönlichen Daten (Mails, Testergebnisse ...) zu übernehmen.
 auth#:#auth_ldap_server_ds#:#LDAP-Server
 auth#:#auth_login_editor#:#Loginseite gestalten
+auth#:#auth_oidc_role_info#:#OpenID Connect Attribut::Wert (zum Beispiel: "roles::Mitarbeitende").
 auth#:#auth_oidc#:#OpenId Connect
 auth#:#auth_oidc_mapping_table#:#Zuordnung von ILIAS-Benutzerdaten zu OpenId Connect Attributen
 auth#:#auth_oidc_profile#:#Zuordnung der Profildaten
@@ -3046,7 +3048,7 @@ common#:#assessment_settings_reporting_language#:#Sprache der Protokollierung
 common#:#assf_allowed_questiontypes#:#Verfügbare Fragetypen
 common#:#assf_allowed_questiontypes_desc#:#Alle aktivierten Fragetypen stehen auf der gesamten ILIAS-Installation zur Verfügung. Nicht gewünschte Fragetypen können Sie hier deaktivieren.
 common#:#assf_questiontypes#:#Frageneinstellungen
-common#:#assign#:#Als Mitglied aufnehmen
+common#:#assign#:#Zuweisen
 common#:#assign_global_role#:#Einer globalen Rolle zuordnen
 common#:#assign_local_role#:#Lokale Rolle zuweisen
 common#:#assigned_members#:#Zugeordnete Teilnehmer
@@ -3394,18 +3396,18 @@ common#:#default_style#:#Standard-Stylesheet
 common#:#defaults#:#Standardeinstellungen
 common#:#delete#:#Löschen
 common#:#delete_existing_file#:#Bestehende Datei löschen
-common#:#delete_inactivated_user_accounts#:#Benutzerzugänge nach Inaktivierung löschen
-common#:#delete_inactivated_user_accounts_desc#:#Benutzerkonten werden %s Tage nach der Inaktivierung gelöscht.
+common#:#delete_inactivated_user_accounts#:#Inaktive Benutzerzugänge löschen
+common#:#delete_inactivated_user_accounts_desc#:#Wenn eingeschaltet, werden Benutzerzugänge %s Tage nach ihrer Inaktivierung gelöscht.
 common#:#delete_inactivated_user_accounts_include_roles#:#Berücksichtigte Rollen
-common#:#delete_inactivated_user_accounts_include_roles_desc#:#Definiert, welche Rollen beim Löschen berücksichtigt werden sollen.
+common#:#delete_inactivated_user_accounts_include_roles_desc#:#Benutzer, die mindestens eine der ausgewählten globalen Rollen inne haben, werden überprüft und gegebenenfalls gelöscht.
 common#:#delete_inactivated_user_accounts_period#:#Vergangene Tage seit Inaktivierung
-common#:#delete_inactivated_user_accounts_period_desc#:#Benutzerkonten werden gelöscht, wenn seit der Inaktivierung diese Zeitspanne verstrichen ist.
-common#:#delete_inactive_user_accounts#:#Benutzerzugänge nach Inaktivität löschen
-common#:#delete_inactive_user_accounts_desc#:#Benutzerkonten werden abhängig vom Zeitpunkt des letzten Logins gelöscht.
+common#:#delete_inactivated_user_accounts_period_desc#:#Benutzerzugang wird gelöscht, wenn seit dessen Inaktivierung diese Anzahl an Tagen verstrichen ist.
+common#:#delete_inactive_user_accounts#:#Benutzer mit lange zurückliegendem Login löschen
+common#:#delete_inactive_user_accounts_desc#:#Wenn eingeschaltet, werden Benutzerzugänge abhängig vom Zeitpunkt des letzten Logins gelöscht.
 common#:#delete_inactive_user_accounts_include_roles#:#Berücksichtigte Rollen
-common#:#delete_inactive_user_accounts_include_roles_desc#:#Definiert, welche Rollen beim Löschen berücksichtigt werden sollen.
+common#:#delete_inactive_user_accounts_include_roles_desc#:#Benutzer, die mindestens eine der ausgewählten globalen Rollen inne haben, werden bei der Überprüfung berücksichtigt und gegebenenfalls gelöscht.
 common#:#delete_inactive_user_accounts_period#:#Vergangene Tage seit letzter Anmeldung
-common#:#delete_inactive_user_accounts_period_desc#:#Benutzerkonten werden gelöscht, wenn seit der letzten Anmeldung diese Zeitspanne verstrichen ist.
+common#:#delete_inactive_user_accounts_period_desc#:#Benutzerzugang wird gelöscht, wenn seit der letzten Anmeldung diese Anzahl an Tagen verstrichen ist.
 common#:#delete_parameter#:#Parameter löschen
 common#:#delete_selected_items#:#Löschen
 common#:#deleted#:#Gelöscht
@@ -9356,6 +9358,7 @@ logging#:#error_settings_saved#:#Einstellungen gespeichert
 logging#:#frm_clear_older_then#:#Dateien löschen die älter sind als
 logging#:#frm_clear_older_then_info#:#Bitte geben Sie den Zeitraum in Tagen ein.
 logging#:#log_error_file_cleanup_info#:#Löscht alte oder verwaiste Dateien des Errorlog.
+logging#:#log_error_path_not_configured_or_wrong#:#Der Pfad zu den Errorlogs (error_path) ist nicht gesetzt oder nicht erreichbar.
 logging#:#log_error_file_cleanup_title#:#Löschen alter oder verwaister Error-Log-Dateien
 logging#:#log_error_folder#:#Dateipfad
 logging#:#log_error_mail#:#E-Mail-Empfänger
@@ -9520,7 +9523,7 @@ mail#:#mail_attachment_file_not_exist#:#Mindestens einer der folgenden Anhänge 
 mail#:#mail_attachments#:#Anhänge
 mail#:#mail_auto_generated_info#:#Diese E-Mail wurde von der ILIAS-Installation %s, %s automatisch an Sie versandt.
 mail#:#mail_both_email#:#Beide E-Mail-Adressen
-mail#:#mail_change_to_folder#:#Wechseln zu Ordner:
+mail#:#mail_change_to_folder#:#Wechseln zu Ordner: %s
 mail#:#mail_create_tpl#:#Textvorlage erstellen
 mail#:#mail_cronjob_notification_info#:#Hier können Sie die regelmäßige Benachrichtigung über neue Mails aktivieren.
 mail#:#mail_crs_list_members_not_available#:#Die Mitglieder der markierten Kurse können nicht aufgelistet werden.
@@ -13281,7 +13284,7 @@ style#:#sty_del_template#:#Templates und Klassen löschen
 style#:#sty_del_template_keep_classes#:#Löschen und Stylesheet-Klasse erhalten
 style#:#sty_delete_other_selected#:#Fortfahren
 style#:#sty_disable_auto_margins#:#Automatische Abstände unterdrücken
-style#:#sty_disable_auto_margins_info#:#Unterdrückt das automatische Setzen der linken und rechten Abstandes auf 0 Pixel, wenn Media-Objekte links- oder rechtsbündig angeordnete werden.
+style#:#sty_disable_auto_margins_info#:#Unterdrückt das automatische Setzen des linken und rechten Abstandes auf 0 Pixel, wenn Media-Objekte links- oder rechtsbündig angeordnet werden.
 style#:#sty_edit_template#:#Template bearbeiten
 style#:#sty_even_col_class#:#Einschließlich Spalten
 style#:#sty_even_row_class#:#Einschließlich Zeilen
@@ -13338,7 +13341,7 @@ style#:#sty_min_height#:#Minimale Höhe
 style#:#sty_move_lm_styles#:#Stylesheets der Lernmodule ändern
 style#:#sty_move_style#:#Stylesheet ändern
 style#:#sty_move_user_styles#:#Stylesheet der Benutzer ändern
-style#:#sty_msg_characteristic_must_only_include#:#Der Titel des Styles darf nur die folgenden Zeichen enthalten
+style#:#sty_msg_characteristic_must_only_include#:#Der Titel des Styles muss mit einem Buchstaben beginnen und darf nur die folgenden Zeichen enthalten
 style#:#sty_msg_color_must_only_include#:#Der Farbname darf nur folgende Buchstaben/Zeichen enthalten
 style#:#sty_msg_input_must_be_numeric#:#Numerische Eingabe erforderlich.
 style#:#sty_name#:#Name
@@ -15066,3 +15069,5 @@ forum#:#frm_move_invalid_file_type#:#Das ausgewählte Thema "%s" hat einen nicht
 crs#:#crs_objective_result_summary_initial#:#Einstiegstest: %1$s (%2$s benötigt)
 crs#:#crs_objective_result_summary_qualifying#:#Abschlusstest: %1$s (%2$s benötigt)
 crs#:#crs_objective_result_details#:#« Details anzeigen
+exc#:#exc_text_saved#:#Der Text wurde gespeichert.
+exc#:#exc_team_by_random_add_info#:#Bitte beachten Sie, dass Sie der Übung zunächst alle Teilnehmer zuordnen müssen, bevor Sie diese Option sinnvoll nutzen können.
