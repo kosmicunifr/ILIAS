@@ -662,12 +662,12 @@ class ilRepositorySearchGUI
                         $ul->setDataSourceSubmitOnSelection(true);
                         $ul->setDataSourceSubmitUrl(
                             $this->ctrl->getLinkTarget(
-                                    $this,
-                                    'showSearchSelected',
-                                    '',
-                                    false,
-                                    false
-                                )
+                                $this,
+                                'showSearchSelected',
+                                '',
+                                false,
+                                false
+                            )
                         );
                         $ul->setDataSource($ilCtrl->getLinkTarget(
                             $this,
