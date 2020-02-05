@@ -123,7 +123,7 @@ class ilSkillProfileGUI
                     "confirmDeleteProfiles", "deleteProfiles", "showLevels", "assignLevel",
                     "assignLevelSelectSkill", "assignLevelToProfile",
                     "confirmLevelAssignmentRemoval", "removeLevelAssignments",
-                    "showUsers", "assignUser", "assignRole"
+                    "showUsers", "assignUser", "assignRole",
                     "confirmUserRemoval", "removeUsers", "exportProfiles", "showImportForm", "importProfiles"))) {
                     $this->$cmd();
                 }
