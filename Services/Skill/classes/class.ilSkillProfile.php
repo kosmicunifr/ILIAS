@@ -163,7 +163,7 @@ class ilSkillProfile implements ilSkillUsageInfo
             "SELECT * FROM skl_profile " .
             " WHERE id = " . $ilDB->quote($this->getId(), "integer")
         );
-        $rec  = $ilDB->fetchAssoc($set);
+        $rec = $ilDB->fetchAssoc($set);
         $this->setTitle($rec["title"]);
         $this->setDescription($rec["description"]);
         
@@ -309,7 +309,7 @@ class ilSkillProfile implements ilSkillUsageInfo
             "SELECT " . $a_field . " FROM skl_profile " .
             " WHERE id = " . $ilDB->quote($a_id, "integer")
         );
-        $rec  = $ilDB->fetchAssoc($set);
+        $rec = $ilDB->fetchAssoc($set);
         return $rec[$a_field];
     }
     
@@ -442,6 +442,7 @@ class ilSkillProfile implements ilSkillUsageInfo
             " WHERE user_id = " . $ilDB->quote($a_user_id, "integer") .
             " ORDER BY p.title ASC"
         );
+        
         while ($rec  = $ilDB->fetchAssoc($set)) {
             $user_profiles[] = $rec;
         }
