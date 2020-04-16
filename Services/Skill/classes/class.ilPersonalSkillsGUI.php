@@ -440,7 +440,7 @@ class ilPersonalSkillsGUI
                     continue(2);
                 }
             }
-            $html.= $this->getSkillHTML($s["skill_node_id"], 0, true);
+            $html .= $this->getSkillHTML($s["skill_node_id"], 0, true);
         }
         
         // list skills
@@ -631,6 +631,17 @@ class ilPersonalSkillsGUI
                 $panel_comps[] = $this->ui_fac->legacy($sugg);
             }
 
+            $title = $sep = "";
+            $found = false;
+            foreach ($path as $p) {
+                if ($found) {
+                    $title .= $sep . $p["title"];
+                    $sep = " > ";
+                }
+                if ($a_top_skill_id == $p["child"]) {
+                    $found = true;
+                }
+            }
 
             $sub = $this->ui_fac->panel()->sub((string) $title, $panel_comps);
             if ($a_edit) {
@@ -919,7 +930,7 @@ class ilPersonalSkillsGUI
                     $lng->txt("personal_workspace"),
                     $url
                 )]);
-            $message =  $ui->renderer()->render($mbox);
+            $message = $ui->renderer()->render($mbox);
         }
         
         $ilCtrl->saveParameter($this, "skill_id");
@@ -1350,10 +1361,10 @@ class ilPersonalSkillsGUI
                 $cpkg = 1;
                 foreach ($sw_skills as $k => $s) {
                     $skill_packages[$cpkg][$k] = $s;
-                    if ($mod < 3 && count($skill_packages) == ($pkg_num - 1) && count($skill_packages[$cpkg]) == 3+$mod) {
-                        $cpkg+=1;
+                    if ($mod < 3 && count($skill_packages) == ($pkg_num - 1) && count($skill_packages[$cpkg]) == 3 + $mod) {
+                        $cpkg += 1;
                     } elseif (count($skill_packages[$cpkg]) == 7) {
-                        $cpkg+=1;
+                        $cpkg += 1;
                     }
                 }
             }
@@ -1447,7 +1458,7 @@ class ilPersonalSkillsGUI
                 }
 
                 $chart_html = $chart->getHTML();
-                $all_chart_html.= $chart_html;
+                $all_chart_html .= $chart_html;
             }
 
             $pan = ilPanelGUI::getInstance();
@@ -1472,7 +1483,7 @@ class ilPersonalSkillsGUI
                     continue(2);
                 }
             }
-            $html.= $this->getSkillHTML($s["base_skill_id"], $user_id, false, $s["tref_id"]);
+            $html .= $this->getSkillHTML($s["base_skill_id"], $user_id, false, $s["tref_id"]);
         }
 
         // list skills
@@ -1967,7 +1978,7 @@ class ilPersonalSkillsGUI
         $html = "";
         foreach ($skills as $s) {
             // todo draft check
-            $html.= $this->getSkillHTML($s["base_skill_id"], 0, true, $s["tref_id"]);
+            $html .= $this->getSkillHTML($s["base_skill_id"], 0, true, $s["tref_id"]);
         }
 
         if ($html != "") {
