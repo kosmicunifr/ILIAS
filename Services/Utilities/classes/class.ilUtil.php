@@ -362,7 +362,11 @@ class ilUtil
             $disabled = ' disabled=\"disabled\"';
         }
 
-        $str = "<select name=\"" . $varname . "\"" . $multiple . " $class size=\"" . $size . "\" $attributes $disabled>\n";
+        $size_str = "";
+        if ($size > 0) {
+            $size_str = ' size="'.$size.'" ';
+        }
+        $str = "<select name=\"" . $varname . "\"" . $multiple . " $class " . $size_str . " $attributes $disabled>\n";
 
         foreach ((array) $options as $key => $val) {
             $style = "";
@@ -1893,13 +1897,13 @@ class ilUtil
     * Build img tag
     *
     * @static
-    *
+    * @deprecated
     */
-    public static function img($a_src, $a_alt = "", $a_width = "", $a_height = "", $a_border = 0, $a_id = "", $a_class = "")
+    public static function img($a_src, $a_alt = null, $a_width = "", $a_height = "", $a_border = 0, $a_id = "", $a_class = "")
     {
         $img = '<img src="' . $a_src . '"';
-        if ($a_alt != "") {
-            $img .= ' alt="' . htmlspecialchars($a_alt) . '" title="' . htmlspecialchars($a_alt) . '"';
+        if (!is_null($a_alt)) {
+            $img .= ' alt="' . htmlspecialchars($a_alt) . '"';
         }
         if ($a_width != "") {
             $img .= ' width="' . htmlspecialchars($a_width) . '"';
@@ -1913,7 +1917,7 @@ class ilUtil
         if ($a_id != "") {
             $img .= ' id="' . $a_id . '"';
         }
-        $img .= ' border="' . (int) $a_border . '"/>';
+        $img .= ' />';
 
         return $img;
     }
