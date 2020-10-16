@@ -13,6 +13,8 @@
 	RewriteCond %{REQUEST_METHOD} ^(OPTIONS)$
 	RewriteRule .* "-" [R=401,L]
 
+	RewriteRule ^/?vote(/\w*)? /Customizing/global/plugins/Services/Repository/RepositoryObject/LiveVoting/pin.php?xlvo_pin=$1 [L]
+
 	RedirectMatch 404 /\.git
 </IfModule>
 <IfModule mod_xsendfile.c>
