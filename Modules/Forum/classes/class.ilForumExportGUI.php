@@ -97,7 +97,8 @@ class ilForumExportGUI
         $location_stylesheet = ilUtil::getStyleSheetLocation();
         $tpl->setVariable('LOCATION_STYLESHEET', $location_stylesheet);
 
-        iljQueryUtil::initjQuery();
+        iljQueryUtil::initjQuery($tpl);
+        ilMathJax::getInstance()->includeMathJax($tpl);
 
         $this->frm->setMDB2WhereCondition('top_pk = %s ', array('integer'), array((int) $_GET['thr_top_fk']));
         if (is_array($frmData = $this->frm->getOneTopic())) {
@@ -140,7 +141,8 @@ class ilForumExportGUI
         $location_stylesheet = ilUtil::getStyleSheetLocation();
         $tpl->setVariable('LOCATION_STYLESHEET', $location_stylesheet);
 
-        iljQueryUtil::initjQuery();
+        iljQueryUtil::initjQuery($tpl);
+        ilMathJax::getInstance()->includeMathJax($tpl);
 
         $this->frm->setMDB2WhereCondition('top_pk = %s ', array('integer'), array((int) $_GET['top_pk']));
         if (is_array($frmData = $this->frm->getOneTopic())) {
@@ -276,13 +278,15 @@ class ilForumExportGUI
         );
 
         if ($authorinfo->hasSuffix()) {
+            if (!$authorinfo->isDeleted()) {
+                $tpl->setVariable('USR_NAME', $authorinfo->getAlias());
+            }
             $tpl->setVariable('AUTHOR', $authorinfo->getSuffix());
-            $tpl->setVariable('USR_NAME', $post->getUserAlias());
         } else {
-            $tpl->setVariable('AUTHOR', $authorinfo->getAuthorShortName());
             if ($authorinfo->getAuthorName(true) && !$this->objProperties->isAnonymized()) {
                 $tpl->setVariable('USR_NAME', $authorinfo->getAuthorName(true));
             }
+            $tpl->setVariable('AUTHOR', $authorinfo->getAuthorShortName());
         }
 
         if (self::MODE_EXPORT_CLIENT == $mode) {
