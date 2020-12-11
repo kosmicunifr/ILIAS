@@ -554,17 +554,24 @@ footer {
 @media print {
 	html body {
 		overflow: visible;
+		background: none;
 
 		.il-layout-page {
 			display: block;
 			overflow: visible;
+			background: none;
 
 			header,
 			.il-maincontrols,
 			.breadcrumbs,
-			footer {
-				display: none;
+			footer,
+			.ilFileDropTargetOverlay {
+				display: none !important;
 			}
+		}
+		.il-layout-page-content,
+		.il-layout-page-content div	{
+			display: block;
 		}
 	}
 }
