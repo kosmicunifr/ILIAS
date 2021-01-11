@@ -8802,6 +8802,10 @@ grid-based layout
   height: 100%;
   overflow: hidden;
   width: 100%;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
 }
 .il-layout-page .il-maincontrols-mainbar .il-mainbar-close-slates {
   display: none;
@@ -12102,6 +12106,9 @@ span.ilAlert {
 .breadcrumb {
   margin: 0.8em 0 20px 0;
   font-size: 90%;
+}
+.breadcrumb > li + li:before {
+  font-family: 'il-icons';
 }
 @media only screen and (max-width: 768px) {
   .breadcrumb {
