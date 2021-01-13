@@ -1459,7 +1459,8 @@ class ilObjMediaObject extends ilObject
                 break;
                 
             // Media Pool
-            case "mep":
+	    case "mep":
+	    case "xvid":
                 $obj_id = $id;
                 break;
 
