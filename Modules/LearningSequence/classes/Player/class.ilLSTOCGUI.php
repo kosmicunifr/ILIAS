@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use ILIAS\KioskMode\TOCBuilder;
+
 /**
  * Tree-GUI for ToC
  *
@@ -10,6 +12,13 @@ declare(strict_types=1);
 
 class ilLSTOCGUI extends ilExplorerBaseGUI
 {
+    const NODE_ICONS = [
+        TOCBuilder::LP_NOT_STARTED => "./templates/default/images/scorm/not_attempted.svg",
+        TOCBuilder::LP_IN_PROGRESS => "./templates/default/images/scorm/incomplete.svg",
+        TOCBuilder::LP_COMPLETED => "./templates/default/images/scorm/completed.svg",
+        TOCBuilder::LP_FAILED => "./templates/default/images/scorm/failed.svg"
+    ];
+
     protected $id = 'ls_toc';
     protected $structure;
     protected $nodes = [];
@@ -22,6 +31,7 @@ class ilLSTOCGUI extends ilExplorerBaseGUI
         LSUrlBuilder $url_builder,
         ilCtrl $il_ctrl
     ) {
+        parent::__construct("lsq_toc", null, "");
         $this->url_builder = $url_builder;
         $this->ctrl = $il_ctrl; //ilExplorerBaseGUI needs ctrl...
         $this->setSkipRootNode(false);
@@ -76,7 +86,7 @@ class ilLSTOCGUI extends ilExplorerBaseGUI
     public function getChildsOfNode($a_parent_node_id)
     {
         $parent_node = $this->nodes[$a_parent_node_id];
-        return $parent_node['childs'];
+        return (array) $parent_node['childs'];
     }
 
     /**
@@ -85,6 +95,15 @@ class ilLSTOCGUI extends ilExplorerBaseGUI
     public function getNodeContent($a_node)
     {
         return $a_node['label'];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getNodeIcon($a_node)
+    {
+        $state = $a_node['state'] ?? TOCBuilder::LP_NOT_STARTED;
+        return static::NODE_ICONS[$state];
     }
 
     /**
@@ -109,5 +128,13 @@ class ilLSTOCGUI extends ilExplorerBaseGUI
     public function isNodeClickable($a_node)
     {
         return !is_null($a_node['parameter']);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function isNodeHighlighted($a_node)
+    {
+        return $a_node['current'];
     }
 }
